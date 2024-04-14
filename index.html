@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastelitos Clau</title>
+    <style>
+        :root {
+            /* Colores */
+            --thistle: #cdb4dbff;
+            --fairy-tale: #ffc8ddff;
+            --carnation-pink: #ffafccff;
+            --uranian-blue: #bde0feff;
+            --light-sky-blue: #a2d2ffff;
+
+            /* Gradient */
+            --gradient-top: linear-gradient(0deg, var(--thistle), var(--fairy-tale), var(--carnation-pink), var(--uranian-blue), var(--light-sky-blue));
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-sky-blue);
+        }
+        header {
+            background-color: var(--carnation-pink);
+            color: var(--uranian-blue);
+            text-align: center;
+            padding: 1rem 0;
+        }
+        nav {
+            background-color: var(--fairy-tale);
+            color: var(--thistle);
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: var(--thistle);
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: var(--carnation-pink);
+            color: var(--uranian-blue);
+            text-align: center;
+            padding: 1rem 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pastelitos Clau</h1>
+    </header>
+    <nav>
+        <a href="#inicio" onclick="showSection('inicio')">Inicio</a>
+        <a href="#galeria" onclick="showSection('galeria')">Galería de Fotos</a>
+        <a href="#contacto" onclick="showSection('contacto')">Contacto</a>
+    </nav>
+    <div class="container">
+        <section id="inicio" class="section">
+            <h2>Inicio</h2>
+            <p>Bienvenidos a nuestra galería de tortas. Aquí encontrarás las más deliciosas y creativas tortas para todo tipo de ocasión.</p>
+        </section>
+        <section id="galeria" class="section hidden">
+            <h2>Galería de Fotos</h2>
+            <div class="gallery">
+                <img src="torta1.jpg" alt="Torta 1">
+                <img src="torta2.jpg" alt="Torta 2">
+                <img src="torta3.jpg" alt="Torta 3">
+                <!-- Puedes añadir más imágenes aquí -->
+            </div>
+        </section>
+        <section id="contacto" class="section hidden">
+            <h2>Contacto</h2>
+            <form id="contactForm">
+                <div>
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Galería de Tortas</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Oculta todas las secciones
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Muestra la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.remove('hidden');
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Aquí puedes agregar la lógica para enviar el formulario
+            alert('Mensaje enviado correctamente');
+        });
+    </script>
+</body>
+</html>
